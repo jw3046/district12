@@ -1,0 +1,6 @@
+touch README.md
+git init
+git add README.md
+git commit -m "whatever message you want"
+git remote add origin https://github.com/jw3046/district12.git
+git push -u origin (name of branch)
