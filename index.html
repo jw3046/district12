@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--search box, event dropdowns  -> takes to portfolio-3-col.html (? how to send query over? url?) how to display search field on portfolio-3-col? -->
+<!--category's "learn more" -> takes to portforlio-3-col.html -->
+<!--recent events / events near me --> 
+<!-- calendar --> 
 
 <head>
 
@@ -47,6 +51,16 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                    <li> <!-- searchbox-->
+                        <form class="navbar-form" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control"  id = "searchEventsBox"placeholder="Search Events" name="q">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" href = "portforlio-3-col.html" id = "searchEventsButton" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </li> <!-- end of searchbox-->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -78,7 +92,7 @@
                                 <a href="portfolio-3-col.html">For Children</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> <!--class "dropdown"-->
                     <li>
                         <a href="contact.html">My Calendar</a>
                     </li>
