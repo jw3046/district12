@@ -40,22 +40,20 @@ function getEventsNearMe(eventListingsKey) {
 
     var requestURI = "http://api.nytimes.com/svc/events/v2/listings.json?&ll=" + latitude + "," + longitude+ "&api-key=" + eventListingsKey;
 
-
 }
 
-var x = document.getElementById("demo");
 //get user's location
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
+        alert("Geolocation is not supported by this browser.");
     }
 }
 
 function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;  
+    alert("Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude);  
 }
 
 getEventsListings(eventListingsKey)
