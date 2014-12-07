@@ -28,7 +28,7 @@ function getEventsListings(eventListingsKey) {
             console.log(data);
         },
         error: function () {
-            console.log('\nFAIL: ' + myUrl);
+            console.log('\nFAIL: ' + requestUrl);
         }
     });
 }
@@ -36,27 +36,112 @@ function getEventsListings(eventListingsKey) {
 /*
 * retrieves events around the user 
 */ 
-function getEventsNearMe(eventListingsKey) {
+function getEventsNearMe(eventListingsKey, latitude, longitude) {
 
-    var requestURI = "http://api.nytimes.com/svc/events/v2/listings.json?&ll=" + latitude + "," + longitude+ "&api-key=" + eventListingsKey;
+    var requestURI = "http://api.nytimes.com/svc/events/v2/listings.jsonp?&ll=" + latitude + "," + longitude+ "&api-key=" + eventListingsKey;
+
+    $.ajax({
+        type: "GET",
+        url: requestURI,
+        dataType: 'jsonp',
+        success: function (data) {
+            
+            console.log(data);
+        },
+        error: function () {
+            console.log('\nFAIL: ' + requestUrl);
+        }
+    });
 
 
 }
 
-var x = document.getElementById("demo");
-//get user's location
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
+//get user's location and call API 
+function locate() {
+  var output = document.getElementById("out");
+
+  if (!navigator.geolocation){
+    console.log("<p>Geolocation is not supported by your browser");
+    error();
+    return;
+  }
+
+  function success(position) {
+    var latitude  = position.coords.latitude;
+    var longitude = position.coords.longitude;
+
+    x = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+    console.log(x)
+    $("#eventsnearmeDiv").empty();
+    var eventsnearmeHEAD="";
+    eventsnearmeHEAD += "            <div class=\"col-lg-12\">";
+    eventsnearmeHEAD += "                <h2 class=\"page-header\">Events Near Me<\/h2>";
+    eventsnearmeHEAD += "            <\/div>";
+    eventsnearmeHEAD += "";
+    $("#eventsnearmeDiv").append(eventsnearmeHEAD);
+    getEventsNearMe(eventListingsKey, latitude, longitude);
+
+
+  };
+
+  function error() {
+    console.log("Unable to retrieve your location");
+    $("#eventsnearmeDiv").empty();
+    var eventsnearmeHEAD="";
+    eventsnearmeHEAD += "            <div class=\"col-lg-12\">";
+    eventsnearmeHEAD += "                <h2 class=\"page-header\">Events Near Me<\/h2>unable to locate. Search near New York Times Office";
+    eventsnearmeHEAD += "            <\/div>";
+    eventsnearmeHEAD += "";
+    $("#eventsnearmeDiv").append(eventsnearmeHEAD);
+    var latitude = 40.756146
+    var longitude = -73.99021
+    getEventsNearMe(eventListingsKey, latitude, longitude);
+
+  };
+
+  console.log("Locating…");
+
+  navigator.geolocation.getCurrentPosition(success, error);
 }
 
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;  
+
+/*
+var geocoder;
+
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+} 
+//Get the latitude and the longitude;
+function successFunction(position) {
+    alert("yay")
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    codeLatLng(lat, lng)
+    console.log(lat)
 }
 
+function errorFunction(){
+    alert("Geocoder failed");
+}
+
+function initialize() {
+    geocoder = new google.maps.Geocoder();
+}
+
+function codeLatLng(lat, lng) {
+    var latlng = new google.maps.LatLng(lat, lng);
+    geocoder.geocode({'latLng': latlng}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+        console.log(results)
+        }
+        else {
+            alert("failed")
+        }
+    });
+}
+*/
 getEventsListings(eventListingsKey)
+locate()
+
+
 
