@@ -4,6 +4,8 @@
 - Allows you to search for events
 - Allows you to manage and organize your events
 - Allows you to view detailed information on events
+- ...that's pretty much it.
+- ...also it (//TODO: )displays Hunger-Games-themed images on the front page
 
 ##Miscellaneous Info
 
