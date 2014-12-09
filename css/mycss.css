@@ -29,11 +29,18 @@ float: left;
 	border-color: #58ACFA;
 }
 
+.btn-see-related {
+	color: #58ACFA;
+	background-color: #fff;
+	border-color: #58ACFA;
+
+}
+
 .panel-default>.panel-heading {
 
 	background-color: #C2DFFE;
 }
-.navbar-inverse {
+.navbar-inverse { 
 	background-color: #C2DFFE;
 	border-color: #080808;
 }
