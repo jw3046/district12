@@ -37,12 +37,13 @@
 
     <!-- Custom Fonts -->
     <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!-- Custom Fonts -->
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Signika:300,600' rel='stylesheet' type='text/css'>
     <!-- mycss.css -->
     <link href="css/mycss.css" rel="stylesheet" type="text/css">
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -65,7 +66,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">District 12</a>
+                <a class="navbar-brand" href="index.html">District 12: Personal Event Organizer</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -116,7 +117,7 @@
                         </ul>
                     </li> <!--class "dropdown"-->
                     <li>
-                        <a href="contact.html">My Calendar</a>
+                        <a href="calendar.html">My Calendar</a>
                     </li>
                 </ul>
             </div>
@@ -124,7 +125,6 @@
         </div>
         <!-- /.container -->
     </nav>
-
     <!-- Page Content -->
     <div class="container">
       <!-- Responsive calendar - START -->
@@ -152,7 +152,6 @@
     <script src="calendar-code/js/jquery.js"></script>
     <script src="calendar-code/js/bootstrap.min.js"></script>
     <script src="calendar-code/js/responsive-calendar.js"></script>
-    <script src="calendar-code/js/calendar.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {
             
@@ -160,21 +159,17 @@
         var mm = today.getMonth()+1;
         var yyyy = today.getFullYear();
         var date = yyyy + '-' + mm;
-
         $(".responsive-calendar").responsiveCalendar({
           time: date,
-
           events: {
             "2013-04-30": {"number": 5, "url": "http://w3widgets.com/responsive-slider"},
             "2013-04-26": {"number": 1, "url": "http://w3widgets.com"},
-            "2014-12-03": {"number": 1, "url": "http://w3widgets.com"},
+            "2014-12-03":{"number": 1, "url": "http://w3widgets.com"},
             //"2014-12-03":{"number": 2, "url": "http://google.com"},
-
             "2013-06-12": {}}
         });
-
+        
         updateEvents();
-        alert('called update');
       });
     </script>
   </body>
