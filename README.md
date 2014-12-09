@@ -52,11 +52,9 @@ Events in the D12PEO use the following fields:
 - Category: used for sorting (on the calendar page, etc.)
 - Location...?: NYT gives city and state, but not sure if we want to include this
 
-##Examples
+##Examples and NYTimes API Details
 
-##NYTimes API Details
-
-###Event Date/Time
+####Event Date/Time
 
 Date/Time listed vary between events
 - date_time_description: contains a string for humans to read
