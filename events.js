@@ -59,8 +59,10 @@ $(document).ready(function(){
 		} else {
 			$("#search_query").text('Category: ' + category);
 		}
+	} else if (query == "") {
+		$("#search_query").text('Showing All Events');
 	} else {
-		$("#search_query").text('Query: ' + query);
+		$("#search_query").text('Events found matching: \"' + query + '\"');
 	}
 
 	getEventsListings();
