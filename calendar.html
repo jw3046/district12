@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Responsive Calendar Widget that will make your day</title>
+    <title>My Calendar</title>
     <meta name="distributor" content="Global" />
     <meta itemprop="contentRating" content="General" />
     <meta name="robots" content="All" />
@@ -154,12 +154,22 @@
     <script src="calendar-code/js/responsive-calendar.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {
+            
+        var today = new Date();
+        var mm = today.getMonth()+1;
+        var yyyy = today.getFullYear();
+        var date = yyyy + '-' + mm;
+
         $(".responsive-calendar").responsiveCalendar({
-          time: '2013-05',
+          time: date,
+
           events: {
             "2013-04-30": {"number": 5, "url": "http://w3widgets.com/responsive-slider"},
             "2013-04-26": {"number": 1, "url": "http://w3widgets.com"}, 
-            "2013-05-03":{"number": 1},
+<<<<<<< HEAD
+            "2014-12-03":{"number": 1, "url": "http://w3widgets.com"},
+            //"2014-12-03":{"number": 2, "url": "http://google.com"},
+
             "2013-06-12": {}}
         });
       });
