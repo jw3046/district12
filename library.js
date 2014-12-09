@@ -110,7 +110,7 @@ function shorten(string, length) {
  * Returns whether date1 precedes date2.
  */
 function precedes(date1, date2) {
-	
+	var d1 = convert(date1);
 }
 
 /**
