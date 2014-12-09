@@ -106,17 +106,29 @@ function displayEvents() {
 	 	var url = events[i].event_detail_url;
 	 	var title = events[i].event_name;
 	 	// title = title.substring(1, title.length-1);
-	 	// var date = events[i].date_time_description;
+
+	 	var date;
 	 	// if (events[i].date_time_description === undefined) {
-	 		var date = new Date(events[i].recurring_start_date);
-	 		date = date.toLocaleDateString();
+	 		var date_start = new Date(events[i].recurring_start_date);
+	 		var date_end = new Date(events[i].recurring_end_date);
+
+	 		if (date_start == "Invalid Date") {				// If recurring start date doesn't exist, put description in
+	 			date = events[i].date_time_description;
+	 		} else if (date_end == "Invalid Date") {		// If recurring end date doesn't exist, only put start date
+	 			date = date_start.toLocaleDateString();
+	 			date = "Starting " + date;
+	 		} else {										// Both start and end date exists, put both in
+	 			date_start = date_start.toLocaleDateString();
+	 			date_end = date_end.toLocaleDateString();
+	 			date = date_start + " - " + date_end;
+	 		}
 	 	// } else {
-	 	// 	date = date.replace(";", "<br />");
+	 		
 	 	// }
 	 	var desc = events[i].web_description;
 	 	$("#events").append(event_html + url 
 	 		+ event_html2 + title 
-	 		+ event_html3 + date 
+	 		+ event_html3 + date
 	 		+ event_html4 + desc 
 	 		+ event_html5);
 	 };
