@@ -1,0 +1,58 @@
+// Classes
+.center-block {
+	text-align: center;
+}
+
+#paginationID {
+	text-align: center;
+}
+
+#nextButton{
+float: right;
+}
+#prevButton{
+float: left;
+}
+
+.page-header {
+	font-family: 'Signika', sans-serif;
+}
+
+.btn {
+	background-color: #58ACFA;
+	color: #fff;
+}
+
+.btn-success {
+	color: #fff;
+	background-color: #58ACFA;
+	border-color: #58ACFA;
+}
+
+.btn-see-related {
+	color: #58ACFA;
+	background-color: #fff;
+	border-color: #58ACFA;
+
+}
+
+.panel-default>.panel-heading {
+
+	background-color: #C2DFFE;
+}
+.navbar-inverse { 
+	background-color: #C2DFFE;
+	border-color: #080808;
+}
+.navbar-inverse .navbar-brand {
+	color: rgb(115, 109, 109);
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: rgb(115, 109, 109);
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
+	color: #fff;
+	background-color: #7DBAFA;
+}

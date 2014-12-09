@@ -41,5 +41,12 @@ function storeEvent(id, name, date, description, category) {
 			'category': category
 	};
 	
-	store.set(id, event);
+	store.set(id, event);1
+}
+
+/**
+ * Parses some common date formats.
+ */
+function parseDate(date) {
+	// TODO: implement parser for date_time_description field
 }

@@ -24,8 +24,11 @@ var event_html5 = "";
 event_html5 += "<br /><a class=\"btn btn-success btn-add-to-calendar\" id=\""
 // event's index in "event" array
 var event_html6 = "";
-event_html6 += "\">Add to Calendar</a>";
-event_html6 += "<\/div>";
+event_html6 += "\">Add to Calendar</a>&nbsp;<a class=\"btn btn-primary btn-see-related\" id=\""
+// event's index in "event" array
+var event_html7 = "";
+event_html7 += "\">See Related Articles</a>";
+event_html7 += "<\/div>";
 
 // Row HTML
 var start_row_html = "<div class=\"row\">";
@@ -72,6 +75,14 @@ $(document).ready(function(){
 		storeEvent(e.event_id, e.event_name, formatDate(e), e.web_description, e.category);
 		$(this).text('Added to Calendar');
 		$(this).attr('class', 'btn btn-success disabled');
+	});
+	$(document).on('click', '.btn-see-related', function(event) {
+		var e = events[$(this).attr('id')];
+		// storeEvent(e.event_id, e.event_name, formatDate(e), e.web_description, e.category);
+		// $(this).text('Added to Calendar');
+		// $(this).attr('class', 'btn btn-success disabled');
+		var href = "event_details.html?name=" + e.event_name + "&url=" + e.event_detail_url
+		window.location.href = href;
 	});
 });
 
@@ -125,7 +136,8 @@ function displayEvents() {
 	 		+ event_html3 + date
 	 		+ event_html4 + desc 
 	 		+ event_html5 + i
-	 		+ event_html6);
+	 		+ event_html6 + i
+	 		+ event_html7);
 	 };
 	 $("#events").append(end_row_html);
 }

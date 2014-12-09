@@ -32,32 +32,39 @@ var start_row_html = "<div class=\"row\">";
 var end_row_html = "<\/div>";
 var between_row_html = end_row_html + start_row_html;
 
-
-
-// for pagination
-var num_events = 0;
-var num_paginate = 0;
-var current_page = 1;
-
-//
-var latitude = 0;
-var longitude = 0;
-
 /*
 * example request URI's 
 */ 
 var basicrequestURI = "http://api.nytimes.com/svc/events/v2/listings.json?api-key=5d65a900f394c8d1f5a2276a9a287120%3A12%3A70179591";
 var searchbycategoryURI = "http://api.nytimes.com/svc/events/v2/listings.json?filters=category%3AforChildren&api-key=5d65a900f394c8d1f5a2276a9a287120%3A12%3A70179591";
 var spacialsearchURI = "http://api.nytimes.com/svc/events/v2/listings.json?&ll=40.756146,-73.99021&api-key=5d65a900f394c8d1f5a2276a9a287120:12:70179591"
+/*
+* retrieves events data
+*/
+function getEventsListings(eventListingsKey) { 
 
+    var requestURI = "http://api.nytimes.com/svc/events/v2/listings.jsonp?api-key=" + eventListingsKey; 
+
+    $.ajax({
+        type: "GET",
+        url: requestURI,
+        dataType: 'jsonp',
+        success: function (data) {
+            
+            console.log(data);
+        },
+        error: function () {
+            console.log('\nFAIL: ' + requestUrl);
+        }
+    });
+}
 
 /*
 * retrieves events around the user 
 */ 
-function getEventsNearMe(eventListingsKey) {
+function getEventsNearMe(eventListingsKey, latitude, longitude) {
 
-    var offset = (current_page-1)*3
-    var requestURI = "http://api.nytimes.com/svc/events/v2/listings.jsonp?&ll=" + latitude + "," + longitude+ "&limit=3&offset=" + offset +"&api-key=" + eventListingsKey;
+    var requestURI = "http://api.nytimes.com/svc/events/v2/listings.jsonp?&ll=" + latitude + "," + longitude+ "&api-key=" + eventListingsKey;
 
     $.ajax({
         type: "GET",
@@ -67,8 +74,6 @@ function getEventsNearMe(eventListingsKey) {
             
             console.log(data);
             events = data.results;
-            num_events = data.num_results;
-            num_paginate = Math.ceil(num_events/3.0)
             displayEvents();
         },
         error: function () {
@@ -78,11 +83,12 @@ function getEventsNearMe(eventListingsKey) {
 
 }
 
-
 function displayEvents(){
+    var numberof_events = events.length;
+    var numberto_paginate = Math.ceil(numberof_events /3.0);
+    //displayPagination(numberto_paginate);
     var paginatenumber = 1
-    $("#eventsnearmeDiv").empty();
-    for (var i = 0; i < events.length; i++) {
+    for (var i = paginatenumber -1; i < paginatenumber*3; i++) {
         if (i == 0) {
             $("#eventsnearmeDiv").append(start_row_html);
         } else if (i%3 == 0) {
@@ -112,38 +118,20 @@ var between_row_html = end_row_html + start_row_html;
 
 }
 
+function displayPagination(numberto_paginate) {
+
+    var paginateHTML="";
+    paginateHTML += "    <div class=\"row center-block\" id = \"paginationID\">";
+    paginateHTML += "        <ul class=\"pagination pagination-sm\">";
+    for (var i= 1; i<numberto_paginate+1; i++){
+        paginateHTML += "            <li><a href=\"#\">" + i + "<\/a><\/li>";
+    }  
+    paginateHTML += "        <\/ul>";
+    paginateHTML += "    <\/div>";
+    $("#eventsnearmeDiv").append(paginateHTML);
 
 
-/*
-* gets called when next button is pressed
-*/
-function next() {
-    current_page = current_page + 1;
-    if (current_page > num_paginate) {
-        alert("no more results!");
-        current_page = current_page -1;
-        locate()
-    }
-    else {
-        locate();
-    }
 }
-
-/*
-* gets called when prev button is pressed
-*/
-function prev() {
-    current_page = current_page - 1;
-    if (current_page == 0) {
-        alert("first page!");
-        current_page = 1;
-        locate();
-    } else {
-        locate();
-    }
-}
-
-
 function formatDate(event_data) {
     var date = "";
     // if (event_data.date_time_description === undefined) {
@@ -161,10 +149,11 @@ function formatDate(event_data) {
             date = date_start + " - " + date_end;
         }
     // } else {
-      
+        
     // }
     return date;
 }
+
 
 //get user's location and call API 
 function locate() {
@@ -177,24 +166,30 @@ function locate() {
   }
 
   function success(position) {
-    latitude  = position.coords.latitude;
-    longitude = position.coords.longitude;
+    var latitude  = position.coords.latitude;
+    var longitude = position.coords.longitude;
 
     x = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
     console.log(x)
     $("#eventsnearmeDiv").empty();
 
-    getEventsNearMe(eventListingsKey);
+    getEventsNearMe(eventListingsKey, latitude, longitude);
 
 
   };
 
   function error() {
-    alert("Unable to retrieve your location");
+    console.log("Unable to retrieve your location");
     $("#eventsnearmeDiv").empty();
-    latitude = 40.756146
-    longitude = -73.99021
-    getEventsNearMe(eventListingsKey);
+    var eventsnearmeHEAD="";
+    eventsnearmeHEAD += "            <div class=\"col-lg-12\">";
+    eventsnearmeHEAD += "            unable to locate. Search near New York Times Office";
+    eventsnearmeHEAD += "            <\/div>";
+    eventsnearmeHEAD += "";
+    $("#eventsnearmeDiv").append(eventsnearmeHEAD);
+    var latitude = 40.756146
+    var longitude = -73.99021
+    getEventsNearMe(eventListingsKey, latitude, longitude);
 
   };
 
@@ -245,6 +240,7 @@ function codeLatLng(lat, lng) {
     });
 }
 */
+getEventsListings(eventListingsKey)
 locate()
 
 
