@@ -70,12 +70,18 @@ $(document).ready(function(){
 
 	getEventsListings();
 
+
+
+
+
 	$(document).on('click', '.btn-add-to-calendar', function(event) {
 		var e = events[$(this).attr('id')];
 		storeEvent(e.event_id, e.event_name, formatDate(e), e.web_description, e.category);
+				
 		$(this).text('Added to Calendar');
 		$(this).attr('class', 'btn btn-success disabled');
 	});
+
 	$(document).on('click', '.btn-see-related', function(event) {
 		var e = events[$(this).attr('id')];
 		// storeEvent(e.event_id, e.event_name, formatDate(e), e.web_description, e.category);
