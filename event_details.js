@@ -34,7 +34,7 @@ $(document).ready(function(){
 	url = getUrlParameter('url');
 	url = decodeURIComponent(url);
 	console.log(url);
-	$("#title").text(title);
+	$("#title").html('Articles Relating to: <em>' + title + '</em>');
 
 	getRelatedArticles();
 });
@@ -64,7 +64,9 @@ function displayRelated(a) {
 	for (var i = 0; i < a.length; i++) {
 		var url = a[i].web_url;
 		var title = a[i].headline.main;
-		var summary = a[i].abstract;
+		var summary = a[i].snippet;
+
+		console.log(a[i]);
 
 		$("#related").append(related1 + url
 			+ related2 + title 
