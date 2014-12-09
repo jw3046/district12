@@ -1,8 +1,8 @@
-##District 12 Personal Event Organizer
+#District 12 Personal Event Organizer
 
-###Miscellaneous Info
+##Miscellaneous Info
 
-#####The NYT Event Listings API provides the following fields for each event:
+####The NYT Event Listings API provides the following fields for each event:
 Event id
 Event schedule id
 Last modified
@@ -24,7 +24,7 @@ Previews and openings
 Recurring start date
 Recur days
 
-#####Store.js basics:
+####Store.js basics:
 store.get('...') - gets value associated with key '...'
 store.set('...', object) - sets the value associated with key '...' to object
 store.remove('...') - removes the key-value pairing with key '...'
@@ -33,7 +33,7 @@ store.getAll() - gets all stored values
 store.forEach(function(...) { ....... }) - executes the specified function for
 	all stored values
 
-###Storage conventions
+##Storage conventions
 
 Events are stored as javascript objects via store.js.
 
