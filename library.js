@@ -47,6 +47,6 @@ function storeEvent(id, name, date, description, category) {
 /**
  * Parses some common date formats.
  */
-function parseDate(String date) {
+function parseDate(date) {
 	// TODO: implement parser for date_time_description field
 }

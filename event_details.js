@@ -14,17 +14,20 @@ related2 += "\">";
 // Article Title
 var related3="";
 related3 += "<\/a>";
-related3 += "<\/h3>";
-related3 += "<p>";
+related3 += "<\/h3><h4>"
+// Article Date
+var related4 = "";
+related4 += "</h4>";
+related4 += "<p>";
 // Article Summary
-var related4="";
-related4 += "<\/p>";
-related4 += "<a class=\"btn btn-primary\" href=\"";
-// URL
 var related5="";
-related5 += "\">Read More <i class=\"fa fa-angle-right\"><\/i><\/a>";
-related5 += "<\/div>";
-related5 += "<\/div>";
+related5 += "<\/p>";
+related5 += "<a class=\"btn btn-primary\" href=\"";
+// URL
+var related6="";
+related6 += "\">Read More <i class=\"fa fa-angle-right\"><\/i><\/a>";
+related6 += "<\/div>";
+related6 += "<\/div>";
 
 
 // Page Loads
@@ -65,14 +68,20 @@ function displayRelated(a) {
 		var url = a[i].web_url;
 		var title = a[i].headline.main;
 		var summary = a[i].snippet;
+		var date = new Date(a[i].pub_date);
+		date = date.toLocaleDateString();
 
-		console.log(a[i]);
+		if (summary == 'null') {
+			summary = '';
+			console.log("ERROR: No article summary found");
+		}
 
 		$("#related").append(related1 + url
 			+ related2 + title 
-			+ related3 + summary
-			+ related4 + url 
-			+ related5);
+			+ related3 + date
+			+ related4 + summary
+			+ related5 + url 
+			+ related6);
 	};
 }
 
