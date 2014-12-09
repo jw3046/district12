@@ -23,6 +23,11 @@
 
     <!-- Custom Fonts -->
     <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Signika:300,600' rel='stylesheet' type='text/css'>
+    <!-- mycss.css -->
+    <link href="css/mycss.css" rel="stylesheet" type="text/css">
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -145,7 +150,7 @@
             <span class="icon-next"></span>
         </a>
     </header>
-<p id="demo"></p>
+
 
     <!-- Page Content -->
     <div class="container">
@@ -157,113 +162,122 @@
                     Events by Category 
                 </h1>
             </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i>Movies</h4>
+            <div class = "row">
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4><i class="fa fa-fw fa-check"></i>Movies</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p> Data of movies in New York Times that were showing, currently showing, or to be shown. Shows starting date, ratings, runningtime, language spoken and a short description.
+                            </p>
+                            <a href="events.html?category=Movies" class="btn btn-default">View Events</a>
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="events.html?category=Movies" class="btn btn-default">View Events</a>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4><i class="fa fa-fw fa-gift"></i>Theater</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p>Data of theater shows in New York Times that were showing, currently showing, or to be shown. Shows starting date, a short description, and it's running time.</p>
+                            <a href="events.html?category=Theater" class="btn btn-default">View Events</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4><i class="fa fa-fw fa-compass"></i>Art</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p>Data of art shows in New York Times that were showing, currently showing, or to be shown. Shows the location, starting date, a short description.</p>
+                            <a href="events.html?category=Art" class="btn btn-default">View Events</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i>Theater</h4>
+            <div class = "row">
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4><i class="fa fa-fw fa-check"></i>Spare Times</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p>Data of events in New York Times that are good to attend during "spare time"  that were showing, currently showing, or to be shown. Shows location, duration of the event, and a short description</p>
+                            <a href="events.html?category=spareTimes" class="btn btn-default">View Events</a>
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="events.html?category=Theater" class="btn btn-default">View Events</a>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4><i class="fa fa-fw fa-gift"></i>For Children</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p>Data of events in New York Times that are good to attend with children that were showing, currently showing, or to be shown. Shows a starting date and a short description</p>
+                            <a href="events.html?category=forChildren" class="btn btn-default">View Events</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4><i class="fa fa-fw fa-compass"></i>Classical</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p>Data of classical concerts in New York Times that were showing, currently showing, or to be shown. Shows the title (or location if the concert is not given a proper name) , data and time, and a short description</p>
+                            <a href="events.html?category=Classical" class="btn btn-default">View Events</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i>Art</h4>
+            <div class = "row">
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4><i class="fa fa-fw fa-compass"></i>Pop</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p>Data of pop concerts in New York Times that were showing, currently showing, or to be shown. Shows the title (or the band/singer's name if the concert is not given a proper name) , data and time, and a short description</p>
+                            <a href="events.html?category=Pop" class="btn btn-default">View Events</a>
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="events.html?category=Art" class="btn btn-default">View Events</a>
+                </div>            
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4><i class="fa fa-fw fa-compass"></i>Jazz</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p>Data of Jazz concerts in New York Times that were showing, currently showing, or to be shown. Shows the title (or the band/singer's name if the concert is not given a proper name) , data and time, and a short description</p>
+                            <a href="events.html?category=Jazz" class="btn btn-default">View Events</a>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i>Spare Times</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="events.html?category=spareTimes" class="btn btn-default">View Events</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i>For Children</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="events.html?category=forChildren" class="btn btn-default">View Events</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i>Classical</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="events.html?category=Classical" class="btn btn-default">View Events</a>
+                </div>            
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4><i class="fa fa-fw fa-compass"></i>Dance</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p>Data of dance shows in New York Times that were showing, currently showing, or to be shown. Shows the title (or the group/dancer's name if the concert is not given a proper name) , data and time, and a short description</p>
+                            <a href="events.html?category=Dance" class="btn btn-default">View Events</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i>Pop</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="events.html?category=Pop" class="btn btn-default">View Events</a>
-                    </div>
-                </div>
-            </div>            
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i>Jazz</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="events.html?category=Jazz" class="btn btn-default">View Events</a>
-                    </div>
-                </div>
-            </div>            
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i>Dance</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="events.html?category=Dance" class="btn btn-default">View Events</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i>Comedy</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="events.html?category=Comedy" class="btn btn-default">View Events</a>
+            <div class = "row">
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4><i class="fa fa-fw fa-compass"></i>Comedy</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p>Data of comedy shows in New York Times that were showing, currently showing, or to be shown. Shows the title (or the performer's name if the concert is not given a proper name) , data and time, and a short description</p>
+                            <a href="events.html?category=Comedy" class="btn btn-default">View Events</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -271,14 +285,21 @@
         <!-- /.row -->
 
         <!-- Other Events Section -->
-        <div class="row" id="eventsnearmeDiv">
+        <div class="row" >
             <div class="col-lg-12">
                 <h2 class="page-header">Events Near Me</h2>
             </div>
-
+        </div>
+        <div class="row">
+            <div class="row center-block" id = "paginationID">
+                <button id ="prevButton" class= "btn glyphicon glyphicon-chevron-left" onclick ="prev()"></button> 
+                <button id ="nextButton" class= "btn glyphicon glyphicon-chevron-right" onclick ="next()">
+                </button>
+            </div>
+   
+        <div class="row" id="eventsnearmeDiv">
 
             <div class="col-md-4" >
-
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4><i class="fa fa-fw fa-check"></i>Art</h4>
@@ -288,8 +309,8 @@
                         <a href="events.html?category=art" class="btn btn-default">View Events</a>
                     </div>
                 </div>
-            
             </div>
+
         </div>
         <!-- /.row -->
 
