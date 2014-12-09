@@ -4,7 +4,33 @@ var mostPopularKey = "1afeb582103aac31d8d6a2724f32f5aa:7:70179591";
 var movieReviewsKey =" bdfdb8e3cb88fed3029cb5a65646f6f5:18:70179591";
 var topStoriesKey = "d84ffb842774795b60d4193a6c9e86c2:12:70179591";
 
+var html1="";
+html1 += "<div class=\"col-md-4 img-portfolio\">";
+html1 += "<h3>";
+html1 += "<a href=\""
+// URL
+var html2 ="";
+html2 += "\">";
+// Title
+var html3="";
+html3 += "<\/a>";
+html3 += "<\/h3>";
+html3 += "<h5>";
+// Date
+var html4="";
+html4 += "<\/h5>";
+// Description
+var html5 = "";
+html5 += "<br /><a class=\"btn btn-success btn-add-to-calendar\" id=\""
+// event's index in "event" array
+var html6 = "";
+html6 += "\">Add to Calendar</a>";
+html6 += "<\/div>";
 
+// Row HTML
+var start_row_html = "<div class=\"row\">";
+var end_row_html = "<\/div>";
+var between_row_html = end_row_html + start_row_html;
 
 /*
 * example request URI's 
@@ -47,13 +73,61 @@ function getEventsNearMe(eventListingsKey, latitude, longitude) {
         success: function (data) {
             
             console.log(data);
+            events = data.results;
+            displayEvents();
         },
         error: function () {
             console.log('\nFAIL: ' + requestUrl);
         }
     });
 
+}
 
+function displayEvents(){
+
+    for (var i = 0; i < events.length; i++) {
+        if (i == 0) {
+            $("#eventsnearmeDiv").append(start_row_html);
+        } else if (i%3 == 0) {
+            $("#eventsnearmeDiv").append(between_row_html);
+        };
+        var url = events[i].event_detail_url;
+        var title = events[i].event_name;
+        // title = title.substring(1, title.length-1);
+
+        var date = formatDate(events[i]);
+        var desc = events[i].web_description;
+        $("#eventsnearmeDiv").append(html1 + url 
+            + html2 + title 
+            + html3 + date
+            + html4 + desc 
+            + html5 + i
+            + html6);
+     };
+     $("#eventsnearmeDiv").append(end_row_html);
+
+}
+
+function formatDate(event_data) {
+    var date = "";
+    // if (event_data.date_time_description === undefined) {
+        var date_start = new Date(event_data.recurring_start_date);
+        var date_end = new Date(event_data.recurring_end_date);
+
+        if (date_start == "Invalid Date") {             // If recurring start date doesn't exist, put description in
+            date = event_data.date_time_description;
+        } else if (date_end == "Invalid Date") {        // If recurring end date doesn't exist, only put start date
+            date = date_start.toLocaleDateString();
+            date = "Starting " + date;
+        } else {                                        // Both start and end date exists, put both in
+            date_start = date_start.toLocaleDateString();
+            date_end = date_end.toLocaleDateString();
+            date = date_start + " - " + date_end;
+        }
+    // } else {
+        
+    // }
+    return date;
 }
 
 //get user's location and call API 
@@ -103,6 +177,12 @@ function locate() {
 
   navigator.geolocation.getCurrentPosition(success, error);
 }
+
+
+
+
+
+
 
 
 /*
