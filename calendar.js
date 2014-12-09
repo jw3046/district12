@@ -11,7 +11,7 @@ function updateEvents() {
 	var i = 11;
 	
 	store.forEach(function(event, id) {
-		$('.responsive-calendar.').responsiveCalendar.events[event.date] = {
+		$('.responsive-calendar.').responsiveCalendar.events[convert(event.date)] = {
 			'number': shorten(events.name, 10),
 			'url': events.url
 		};
