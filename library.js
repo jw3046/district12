@@ -66,7 +66,7 @@ function getRecentEvents(n) {
 	
 	for(var i = 0; i < n; i ++) {
 		recent[i] = {
-				date: "NONE";
+				date: "NONE"
 		}
 		
 		store.forEach(function(event, id) {
