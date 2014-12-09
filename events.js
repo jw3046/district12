@@ -81,7 +81,7 @@ $(document).ready(function(){
 		// storeEvent(e.event_id, e.event_name, formatDate(e), e.web_description, e.category);
 		// $(this).text('Added to Calendar');
 		// $(this).attr('class', 'btn btn-success disabled');
-		var href = "event_details.html?name=" + e.event_name
+		var href = "event_details.html?name=" + e.event_name + "&url=" + e.event_detail_url
 		window.location.href = href;
 	});
 });
