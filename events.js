@@ -21,7 +21,7 @@ var event_html4="";
 event_html4 += "<\/h5>";
 // Description
 var event_html5 = "";
-event_html5 += "<br /><a href=\"#\" class=\"btn btn-success btn-add-to-calendar\" id=\""
+event_html5 += "<br /><a class=\"btn btn-success btn-add-to-calendar\" id=\""
 // event's index in "event" array
 var event_html6 = "";
 event_html6 += "\">Add to Calendar</a>";
@@ -59,8 +59,10 @@ $(document).ready(function(){
 		} else {
 			$("#search_query").text('Category: ' + category);
 		}
+	} else if (query == "") {
+		$("#search_query").text('Showing All Events');
 	} else {
-		$("#search_query").text('Query: ' + query);
+		$("#search_query").text('Events found matching: \"' + query + '\"');
 	}
 
 	getEventsListings();
@@ -68,6 +70,8 @@ $(document).ready(function(){
 	$(document).on('click', '.btn-add-to-calendar', function(event) {
 		var e = events[$(this).attr('id')];
 		storeEvent(e.event_id, e.event_name, formatDate(e), e.web_description, e.category);
+		$(this).text('Added to Calendar');
+		$(this).attr('class', 'btn btn-success disabled');
 	});
 });
 
