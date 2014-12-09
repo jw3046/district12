@@ -14,7 +14,7 @@ function fields() {
 /**
  * Gets fields of query string, if any (returns empty object if none)
  */
-function fields(String query) {
+function fields(query) {
 	var start = query.indexOf('?');
 	var entries = {};
 	
