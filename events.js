@@ -4,6 +4,86 @@ var mostPopularKey = "1afeb582103aac31d8d6a2724f32f5aa:7:70179591";
 var movieReviewsKey =" bdfdb8e3cb88fed3029cb5a65646f6f5:18:70179591";
 var topStoriesKey = "d84ffb842774795b60d4193a6c9e86c2:12:70179591";
 
+var date_pick="";
+date_pick += "			<select name=\"Month\" id=\"mm\">";
+date_pick += "				<option> - Month - <\/option>";
+date_pick += "				<option value=\"01\">January<\/option>";
+date_pick += "				<option value=\"02\">Febuary<\/option>";
+date_pick += "				<option value=\"03\">March<\/option>";
+date_pick += "				<option value=\"04\">April<\/option>";
+date_pick += "				<option value=\"05\">May<\/option>";
+date_pick += "				<option value=\"06\">June<\/option>";
+date_pick += "				<option value=\"07\">July<\/option>";
+date_pick += "				<option value=\"08\">August<\/option>";
+date_pick += "				<option value=\"09\">September<\/option>";
+date_pick += "				<option value=\"10\">October<\/option>";
+date_pick += "				<option value=\"11\">November<\/option>";
+date_pick += "				<option value=\"12\">December<\/option>";
+date_pick += "			<\/select>";
+date_pick += "			<select name=\"Day\" id=\"dd\">";
+date_pick += "				<option> - Day - <\/option>";
+date_pick += "				<option value=\"01\">1<\/option>";
+date_pick += "				<option value=\"02\">2<\/option>";
+date_pick += "				<option value=\"03\">3<\/option>";
+date_pick += "				<option value=\"04\">4<\/option>";
+date_pick += "				<option value=\"05\">5<\/option>";
+date_pick += "				<option value=\"06\">6<\/option>";
+date_pick += "				<option value=\"07\">7<\/option>";
+date_pick += "				<option value=\"08\">8<\/option>";
+date_pick += "				<option value=\"09\">9<\/option>";
+date_pick += "				<option value=\"10\">10<\/option>";
+date_pick += "				<option value=\"11\">11<\/option>";
+date_pick += "				<option value=\"12\">12<\/option>";
+date_pick += "				<option value=\"13\">13<\/option>";
+date_pick += "				<option value=\"14\">14<\/option>";
+date_pick += "				<option value=\"15\">15<\/option>";
+date_pick += "				<option value=\"16\">16<\/option>";
+date_pick += "				<option value=\"17\">17<\/option>";
+date_pick += "				<option value=\"18\">18<\/option>";
+date_pick += "				<option value=\"19\">19<\/option>";
+date_pick += "				<option value=\"20\">20<\/option>";
+date_pick += "				<option value=\"21\">21<\/option>";
+date_pick += "				<option value=\"22\">22<\/option>";
+date_pick += "				<option value=\"23\">23<\/option>";
+date_pick += "				<option value=\"24\">24<\/option>";
+date_pick += "				<option value=\"25\">25<\/option>";
+date_pick += "				<option value=\"26\">26<\/option>";
+date_pick += "				<option value=\"27\">27<\/option>";
+date_pick += "				<option value=\"28\">28<\/option>";
+date_pick += "				<option value=\"29\">29<\/option>";
+date_pick += "				<option value=\"30\">30<\/option>";
+date_pick += "				<option value=\"31\">31<\/option>";
+date_pick += "			<\/select>";
+date_pick += "			<select name=\"Year\" id=\"yyyy\">";
+date_pick += "				<option> - Year - <\/option>";
+date_pick += "				<option value=\"2014\">2014<\/option>";
+date_pick += "				<option value=\"2013\">2013<\/option>";
+date_pick += "				<option value=\"2012\">2012<\/option>";
+date_pick += "				<option value=\"2011\">2011<\/option>";
+date_pick += "				<option value=\"2010\">2010<\/option>";
+date_pick += "				<option value=\"2009\">2009<\/option>";
+date_pick += "				<option value=\"2008\">2008<\/option>";
+date_pick += "				<option value=\"2007\">2007<\/option>";
+date_pick += "				<option value=\"2006\">2006<\/option>";
+date_pick += "				<option value=\"2005\">2005<\/option>";
+date_pick += "				<option value=\"2004\">2004<\/option>";
+date_pick += "				<option value=\"2003\">2003<\/option>";
+date_pick += "				<option value=\"2002\">2002<\/option>";
+date_pick += "				<option value=\"2001\">2001<\/option>";
+date_pick += "				<option value=\"2000\">2000<\/option>";
+date_pick += "				<option value=\"1999\">1999<\/option>";
+date_pick += "				<option value=\"1998\">1998<\/option>";
+date_pick += "				<option value=\"1997\">1997<\/option>";
+date_pick += "				<option value=\"1996\">1996<\/option>";
+date_pick += "				<option value=\"1995\">1995<\/option>";
+date_pick += "				<option value=\"1994\">1994<\/option>";
+date_pick += "				<option value=\"1993\">1993<\/option>";
+date_pick += "				<option value=\"1992\">1992<\/option>";
+date_pick += "				<option value=\"1991\">1991<\/option>";
+date_pick += "				<option value=\"1990\">1990<\/option>	";
+date_pick += "			<\/select>";
+
+
 var event_html1="";
 event_html1 += "<div class=\"col-md-4 img-portfolio\">";
 event_html1 += "<h3>";
@@ -20,8 +100,8 @@ event_html3 += "<h5>";
 var event_html4="";
 event_html4 += "<\/h5>";
 // Description
-var event_html5 = "";
-event_html5 += "<br /><a class=\"btn btn-success btn-add-to-calendar\" id=\""
+var event_html5 = "<em>Select date to attend:<\/em><br \/>" + date_pick;
+event_html5 += "<br /><br /><a class=\"btn btn-success btn-add-to-calendar\" id=\""
 // event's index in "event" array
 var event_html6 = "";
 event_html6 += "\">Add to Calendar</a>&nbsp;<a class=\"btn btn-primary btn-see-related\" id=\""
@@ -102,14 +182,20 @@ $(document).ready(function(){
 	curpage = 1;
 	getEventsListings();
 
-
-
-
-
 	$(document).on('click', '.btn-add-to-calendar', function(event) {
 		var e = events[$(this).attr('id')];
-		storeEvent(e.event_id, e.event_name, formatDate(e), e.web_description, e.category, e.event_detail_url);
-				
+		var mm = $(this).siblings("#mm").val();
+		var dd = $(this).siblings("#dd").val();
+		var yyyy = $(this).siblings("#yyyy").val();
+
+		// var date = new Date();
+		// date.setFullYear(yyyy);
+		// date.setMonth(mm-1);
+		// date.setDate(dd);
+		var date = yyyy + '-' + mm + '-' + dd;
+		console.log(date);
+
+		storeEvent(e.event_id, e.event_name, date, e.web_description, e.category, e.event_detail_url);
 		$(this).text('Added to Calendar');
 		$(this).attr('class', 'btn btn-success disabled');
 	});
