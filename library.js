@@ -45,8 +45,31 @@ function storeEvent(id, name, date, description, category) {
 }
 
 /**
+ * Gets the event with the specified id.
+ */
+function getEvent(id) {
+	return(store.get(id));
+}
+
+/**
+ * Returns all stored events.
+ */
+function getEvents() {
+	return(store.getAll());
+}
+
+/**
  * Parses some common date formats.
  */
 function parseDate(date) {
 	// TODO: implement parser for date_time_description field
+}
+
+/**
+ * Converts a date string in the format mm/dd/yy to one in the format
+ * yyyy-mm-dd.
+ */
+function convert(mdy) {
+	var split = mdy.split('/');
+	return split[2] + '-' + split[0] + '-' + split[1];
 }
