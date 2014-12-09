@@ -36,7 +36,7 @@
     <link href="css/modern-business.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Custom Fonts -->
     <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
@@ -152,6 +152,7 @@
     <script src="calendar-code/js/jquery.js"></script>
     <script src="calendar-code/js/bootstrap.min.js"></script>
     <script src="calendar-code/js/responsive-calendar.js"></script>
+    <script src="calendar-code/js/calendar.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {
             
@@ -166,11 +167,14 @@
           events: {
             "2013-04-30": {"number": 5, "url": "http://w3widgets.com/responsive-slider"},
             "2013-04-26": {"number": 1, "url": "http://w3widgets.com"},
-            "2014-12-03":{"number": 1, "url": "http://w3widgets.com"},
+            "2014-12-03": {"number": 1, "url": "http://w3widgets.com"},
             //"2014-12-03":{"number": 2, "url": "http://google.com"},
 
             "2013-06-12": {}}
         });
+
+        updateEvents();
+        alert('called update');
       });
     </script>
   </body>
