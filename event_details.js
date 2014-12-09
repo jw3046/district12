@@ -18,10 +18,10 @@ related3 += "<\/h3><h4>"
 // Article Date
 var related4 = "";
 related4 += "</h4>";
-related4 += "<p>";
+related4 += "<p><em>\"";
 // Article Summary
 var related5="";
-related5 += "<\/p>";
+related5 += "\"<\/em><\/p>";
 related5 += "<a class=\"btn btn-primary\" href=\"";
 // URL
 var related6="";

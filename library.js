@@ -41,7 +41,54 @@ function storeEvent(id, name, date, description, category) {
 			'category': category
 	};
 	
-	store.set(id, event);1
+	store.set(id, event);
+}
+
+/**
+ * Gets the event with the specified id.
+ */
+function getEvent(id) {
+	return(store.get(id));
+}
+
+/**
+ * Returns all stored events.
+ */
+function getEvents() {
+	return(store.getAll());
+}
+
+/**
+ * Returns the n most recent events.
+ */
+function getRecentEvents(n) {
+	var recent = {};
+	
+	for(var i = 0; i < n; i ++) {
+		recent[i] = {
+				date: "NONE";
+		}
+		
+		store.forEach(function(event, id) {
+			// TODO: implement
+		});
+	}
+}
+
+/**
+ * Returns a version of the given string shortened to the given length.
+ */
+function shorten(string, length) {
+	if(string.length > length) {
+		return string.substring(0, length - 3) + '...';
+	}
+}
+
+/**
+ * Returns whether date1 precedes date2.
+ */
+function precedes(date1, date2) {
+	
 }
 
 /**
@@ -49,4 +96,13 @@ function storeEvent(id, name, date, description, category) {
  */
 function parseDate(date) {
 	// TODO: implement parser for date_time_description field
+}
+
+/**
+ * Converts a date string in the format mm/dd/yy to one in the format
+ * yyyy-mm-dd.
+ */
+function convert(mdy) {
+	var split = mdy.split('/');
+	return split[2] + '-' + split[0] + '-' + split[1];
 }

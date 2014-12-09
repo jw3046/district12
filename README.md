@@ -47,6 +47,7 @@ Events are stored as javascript objects via store.js.
 Events in the D12PEO use the following fields:
 - Event id: use as the name of the javascript object
 - Event name: what it sounds like
+- Event url: the url linking to the event
 - Date: date of the event (add support for start and end dates?)
 - Description: a short description of the event
 - Category: used for sorting (on the calendar page, etc.)
