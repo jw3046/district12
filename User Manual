@@ -1,0 +1,57 @@
+District 12 Personal Event Organizer
+
+Developers:
+Daniel Newman (dln2111)
+Fei-Tzin Lee (fl2301)
+Jon Paul (jp3144)
+Jee Hyun Wang (jw3046)
+Martin Ong (mo2454)
+
+Table of Contents
+1 Overview
+1.1 Introduction
+1.2 What is the D12PEO?
+1.3 Features
+
+2 Tutorial
+2.1 Adding events to calendar
+2.2 Removing events from calendar
+2.3 Categories
+
+3 Credits
+
+1 Overview
+
+1.1 Introduction
+
+Welcome to the District 12 Personal Event Organizer, the number one* brand* of
+student-coded, free New York Times event management!
+
+1.2 What is the D12PEO?
+
+The District 12 Personal Event Organizer allows you to quickly* and
+efficiently* manage event information provided by the New York Times APIs.
+
+1.3 Features
+
+Currently supported features include: event search; saving to and retrieving
+events from a personal calendar.
+
+2 Tutorial
+
+2.1 Adding events to calendar
+
+To add an event, simply click the Add Event button on an individual event page
+or the event listings page.
+
+2.2 Removing events from calendar
+
+To remove an event from your calendar, select the event and click the Remove
+Event button.
+
+3 Credits
+
+Many thanks to the developers of this magnificent* piece of software. Also the
+TAs and professor of this course. And you, the user!
+
+*disclaimers apply.
