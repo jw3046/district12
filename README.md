@@ -53,3 +53,17 @@ Events in the D12PEO use the following fields:
 - Location...?: NYT gives city and state, but not sure if we want to include this
 
 ##Examples
+
+##NYTimes API Details
+
+###Event Date/Time
+
+Date/Time listed vary between events
+- date_time_description: contains a string for humans to read
+	- Ex: "Nov. 12-Jan. 4. Weekdays from 11 a.m. to 8 p.m.; Saturdays from 10 a.m. to 9 p.m.; and Sundays from 10 a.m. to 6 p.m. (Shops have the option to close on Christmas Day and New Year’s Day.)"
+- recurring_start_date: contains a start date for recurring events in JSON Date format
+	- Ex: "2014-11-21T05:00:00.324Z"
+- recurring_end_date: contains an end date for recurring events in JSON Date format
+	- Ex: "2015-01-04T05:00:00.3Z"
+- recur_days: an array that contains days recurring events happen on
+	- Ex: ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
