@@ -108,7 +108,7 @@ $(document).ready(function(){
 
 	$(document).on('click', '.btn-add-to-calendar', function(event) {
 		var e = events[$(this).attr('id')];
-		storeEvent(e.event_id, e.event_name, formatDate(e), e.web_description, e.category);
+		storeEvent(e.event_id, e.event_name, formatDate(e), e.web_description, e.category, e.event_detail_url);
 				
 		$(this).text('Added to Calendar');
 		$(this).attr('class', 'btn btn-success disabled');

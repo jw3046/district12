@@ -33,12 +33,13 @@ function fields(query) {
 /**
  * Stores the specified event fields as an event with the id as the name.
  */
-function storeEvent(id, name, date, description, category) {
+function storeEvent(id, name, date, description, category, url) {
 	var event = {
 			'name': name,
 			'date': date,
 			'description': description,
-			'category': category
+			'category': category,
+			'url': url
 	};
 	
 	store.set(id, event);
