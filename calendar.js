@@ -6,7 +6,7 @@
  * Displays currently stored events.
  */
 function displayEvents() {
-	store.forEach(function() {
+	store.forEach(function(event, id, events) {
 		
-	}) // TODO: figure out how to use foreach -_-
+	})
 }

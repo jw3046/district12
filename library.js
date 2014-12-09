@@ -41,7 +41,7 @@ function storeEvent(id, name, date, description, category) {
 			'category': category
 	};
 	
-	store.set(id, event);1
+	store.set(id, event);
 }
 
 /**
