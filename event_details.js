@@ -36,14 +36,6 @@ $(document).ready(function(){
 	console.log(url);
 	$("#title").text(title);
 
-
-	// $(document).on('click', '.btn-add-to-calendar', function(event) {
-	// 	var e = events[$(this).attr('id')];
-	// 	storeEvent(e.event_id, e.event_name, formatDate(e), e.web_description, e.category);
-	// 	$(this).text('Added to Calendar');
-	// 	$(this).attr('class', 'btn btn-success disabled');
-	// });
-
 	getRelatedArticles();
 });
 
@@ -58,50 +50,28 @@ function getRelatedArticles() {
 		success: function(data) { 
 			if (data.response.docs[0] === undefined) {
 				console.log('ERROR: No articles found');
-				// title = 'A New York Times Article';
 			} else {
-				formatRelated(data.response.docs);
-				// title = data.response.docs[0].headline.main;
+				displayRelated(data.response.docs);
 			}
-			// outputComment(articleURL, title, name, location, body, userID);
 		},
 		error: function () {
 			console.log('ERROR: Get request failed');
-			// outputComment(articleURL, 'A New York Times Article', name, location, body, userID);
 		}
 	});	
 }
 
-function formatRelated(a) {
+function displayRelated(a) {
 	for (var i = 0; i < a.length; i++) {
-		// console.log(a[i]);
-		console.log(a[i].headline.main);
-		console.log(a[i].abstract);
-		console.log(a[i].web_url);
+		var url = a[i].web_url;
+		var title = a[i].headline.main;
+		var summary = a[i].abstract;
 
+		$("#related").append(related1 + url
+			+ related2 + title 
+			+ related3 + summary
+			+ related4 + url 
+			+ related5);
 	};
-}
-
-function formatDate(event_data) {
- 	var date = "";
- 	// if (event_data.date_time_description === undefined) {
- 		var date_start = new Date(event_data.recurring_start_date);
- 		var date_end = new Date(event_data.recurring_end_date);
-
- 		if (date_start == "Invalid Date") {				// If recurring start date doesn't exist, put description in
- 			date = event_data.date_time_description;
- 		} else if (date_end == "Invalid Date") {		// If recurring end date doesn't exist, only put start date
- 			date = date_start.toLocaleDateString();
- 			date = "Starting " + date;
- 		} else {										// Both start and end date exists, put both in
- 			date_start = date_start.toLocaleDateString();
- 			date_end = date_end.toLocaleDateString();
- 			date = date_start + " - " + date_end;
- 		}
- 	// } else {
- 		
- 	// }
- 	return date;
 }
 
 // Gets parameters from URL
