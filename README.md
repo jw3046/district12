@@ -1,5 +1,10 @@
 #District 12 Personal Event Organizer
 
+##What does the District 12 Personal Event Organizer do?
+- Allows you to search for events
+- Allows you to manage and organize your events
+- Allows you to view detailed information on events
+
 ##Miscellaneous Info
 
 ####The NYT Event Listings API provides the following fields for each event:
@@ -37,10 +42,12 @@
 
 Events are stored as javascript objects via store.js.
 
-Events in the D12POE use the following fields:
+Events in the D12PEO use the following fields:
 - Event id: use as the name of the javascript object
 - Event name: what it sounds like
 - Date: date of the event (add support for start and end dates?)
 - Description: a short description of the event
 - Category: used for sorting (on the calendar page, etc.)
 - Location...?: NYT gives city and state, but not sure if we want to include this
+
+##Examples
