@@ -35,6 +35,35 @@ var start_row_html = "<div class=\"row\">";
 var end_row_html = "<\/div>";
 var between_row_html = end_row_html + start_row_html;
 
+// Pagination HTML
+var pagination_begin="";
+pagination_begin += "<li id=\"prev-page\"><a href=\"#\">&laquo;<\/a><\/li>";
+
+var pagination_end="";
+pagination_end += "<li id=\"next-page\"><a href=\"#\">&raquo;<\/a><\/li>";
+
+var current_page_begin="";
+current_page_begin += "<li class=\"active\"><a>";
+
+var page_begin="";
+page_begin += "<li><a href=\"#\" id=\"change-page\">";
+
+var page_end="";
+page_end += "<\/a><\/li>";
+
+function createPagination(curpage, totalpage) {
+	var pagination = pagination_begin;
+	for (var i = 1; i <= totalpage; i++) {
+		if (i == curpage) {
+			pagination += current_page_begin + i + page_end;
+		} else {
+			pagination += page_begin + i + page_end;
+		}
+	};
+	pagination += pagination_end;
+	$(".pagination").html(pagination);
+}
+
 /*
 * example request URI's 
 */ 
@@ -46,6 +75,8 @@ var spacialsearchURI = "http://api.nytimes.com/svc/events/v2/listings.json?&ll=4
 var events = [];
 var category = "";
 var query = "";
+var curpage;
+var totalpage;
 
 // Page Loads
 $(document).ready(function(){
@@ -68,6 +99,7 @@ $(document).ready(function(){
 		$("#search_query").text('Events found matching: \"' + query + '\"');
 	}
 
+	curpage = 1;
 	getEventsListings();
 
 	$(document).on('click', '.btn-add-to-calendar', function(event) {
@@ -84,6 +116,23 @@ $(document).ready(function(){
 		var href = "event_details.html?name=" + e.event_name + "&url=" + e.event_detail_url
 		window.location.href = href;
 	});
+
+	$(document).on('click', '#next-page', function(event) {
+		if (curpage < totalpage) {
+			curpage++;
+			displayEvents(curpage);
+		}
+	});
+	$(document).on('click', '#prev-page', function(event) {
+		if (curpage > 1) {
+			curpage--;
+			displayEvents(curpage);
+		}
+	});
+	$(document).on('click', '#change-page', function(event) {
+		curpage = $(this).text();
+		displayEvents(curpage);
+	});
 });
 
 /*
@@ -96,11 +145,6 @@ function getEventsListings() {
 	} else {
 		filters += 'category:'+category;
 	}
-	// if (query === undefined) {
-
-	// } else {
-	// 	filters += 'query:'+query;
-	// }
 
     $.ajax({
         type: "GET",
@@ -109,7 +153,8 @@ function getEventsListings() {
         dataType: 'jsonp',
         success: function (data) {
             events = data.results;
-            displayEvents();
+            totalpage = Math.ceil(events.length/9);
+            displayEvents(curpage);
         },
         error: function () {
             console.log('FAIL: ' + url);
@@ -118,8 +163,14 @@ function getEventsListings() {
 }
 
 // Displays events on page
-function displayEvents() {
-	for (var i = 0; i < events.length; i++) {
+function displayEvents(curpage) {
+	$("#events").html("");
+	
+	createPagination(curpage, totalpage);
+
+	var start_index = (curpage-1)*9;
+	var end_index = start_index + 9;
+	for (var i = start_index; i < end_index && i < events.length; i++) {
 		if (i == 0) {
 			$("#events").append(start_row_html);
 		} else if (i%3 == 0) {
