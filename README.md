@@ -2,7 +2,7 @@
 
 ##Miscellaneous Info
 
-###The NYT Event Listings API provides the following fields for each event:
+####The NYT Event Listings API provides the following fields for each event:
 Event id
 
 Event schedule id
