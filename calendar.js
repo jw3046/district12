@@ -3,10 +3,15 @@
  */
 
 /**
- * Displays currently stored events.
+ * Updates currently stored events.
  */
-function displayEvents() {
-	store.forEach(function(event, id, events) {
-		
-	})
+function updateEvents() {
+	$('.responsive-calendar').responsiveCalendar.events = {};
+	
+	store.forEach(function(event, id) {
+		$('.responsive-calendar.').responsiveCalendar.events[id] = {
+			'number': shorten(events.name, 10),
+			'url': events.url
+		};
+	});
 }

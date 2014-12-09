@@ -59,6 +59,39 @@ function getEvents() {
 }
 
 /**
+ * Returns the n most recent events.
+ */
+function getRecentEvents(n) {
+	var recent = {};
+	
+	for(var i = 0; i < n; i ++) {
+		recent[i] = {
+				date: "NONE";
+		}
+		
+		store.forEach(function(event, id) {
+			// TODO: implement
+		});
+	}
+}
+
+/**
+ * Returns a version of the given string shortened to the given length.
+ */
+function shorten(string, length) {
+	if(string.length > length) {
+		return string.substring(0, length - 3) + '...';
+	}
+}
+
+/**
+ * Returns whether date1 precedes date2.
+ */
+function precedes(date1, date2) {
+	
+}
+
+/**
  * Parses some common date formats.
  */
 function parseDate(date) {
