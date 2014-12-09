@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>District12_events</title>
+    <title>Events</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -19,6 +19,7 @@
 
     <!-- Custom Fonts -->
     <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,40 +43,53 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Distict 12: Personal Event Organizer</a>
+                <a class="navbar-brand" href="index.html">District 12</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                    <li> <!-- searchbox-->
+                        <form class="navbar-form" role="search" action ="events.html">
+                            <div class="input-group">
+                                <input type="text" class="form-control"  id = "searchEventsBox"placeholder="Search Events" name="q">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default"  id = "searchEventsButton" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </li> <!-- end of searchbox-->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="events.html?category=art">Art</a>
+                                <a href="events.html?category=Movies">Movies</a>
                             </li>
                             <li>
-                                <a href="events.html?category=classicalopera">Classical&Opera</a>
+                                <a href="events.html?category=Theater">Theater</a>
                             </li>
                             <li>
-                                <a href="events.html?category=comedy">Comedy</a>
+                                <a href="events.html?category=Art">Art</a>
                             </li>
                             <li>
-                                <a href="events.html?category=dance">Dance</a>
+                                <a href="events.html?category=spareTimes">Spare Times</a>
                             </li>
                             <li>
-                                <a href="events.html?category=jazz">Jazz</a>
+                                <a href="events.html?category=forChildren">For Children</a>
                             </li>
                             <li>
-                                <a href="events.html?category=rockpop">Rock&Pop</a>
+                                <a href="events.html?category=Classical">Classical</a>
                             </li>
                             <li>
-                                <a href="events.html?category=theater">Theater</a>
+                                <a href="events.html?category=Pop">Pop</a>
                             </li>
                             <li>
-                                <a href="events.html?category=sparetimes">Spare Times</a>
+                                <a href="events.html?category=Jazz">Jazz</a>
                             </li>
                             <li>
-                                <a href="events.html?category=forchildern">For Children</a>
+                                <a href="events.html?category=Dance">Dance</a>
+                            </li>
+                            <li>
+                                <a href="events.html?category=Comedy">Comedy</a>
                             </li>
                         </ul>
                     </li> <!--class "dropdown"-->
@@ -88,130 +102,28 @@
         </div>
         <!-- /.container -->
     </nav>
+    
     <!-- Page Content -->
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Category name
-                    <small>Subheading</small>
+                <h1 class="page-header">Events Listings
+                    <!-- <small>Subheading</small> -->
                 </h1>
-                <ol class="breadcrumb">
+                <h4 id="search_query"></h4>
+<!--                 <ol class="breadcrumb">
                     <li><a href="index.html">Home</a>
                     </li>
                     <li class="active">Category name</li>
-                </ol>
+                </ol> -->
             </div>
         </div>
         <!-- /.row -->
 
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-4 img-portfolio">
-                <h3>
-                    <a href="portfolio-item.html">Project Name</a>
-                </h3>
-                <small>Location, New York</small>
-                <h5>December 4, 2014</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-            <div class="col-md-4 img-portfolio">
-                <h3>
-                    <a href="portfolio-item.html">Project Name</a>
-                </h3>
-                <h5>December 4, 2014</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-            <div class="col-md-4 img-portfolio">
-                <h3>
-                    <a href="portfolio-item.html">Project Name</a>
-                </h3>
-                <h5>December 4, 2014</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-4 img-portfolio">
-                <h3>
-                    <a href="portfolio-item.html">Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-            <div class="col-md-4 img-portfolio">
-                <h3>
-                    <a href="portfolio-item.html">Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-            <div class="col-md-4 img-portfolio">
-                <h3>
-                    <a href="portfolio-item.html">Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-4 img-portfolio">
-                <h3>
-                    <a href="portfolio-item.html">Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-            <div class="col-md-4 img-portfolio">
-                <h3>
-                    <a href="portfolio-item.html">Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-            <div class="col-md-4 img-portfolio">
-                <h3>
-                    <a href="portfolio-item.html">Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Pagination -->
-        <div class="row text-center">
-            <div class="col-lg-12">
-                <ul class="pagination">
-                    <li>
-                        <a href="#">&laquo;</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">4</a>
-                    </li>
-                    <li>
-                        <a href="#">5</a>
-                    </li>
-                    <li>
-                        <a href="#">&raquo;</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
+<div id="events">
+</div>
 
         <!-- Footer -->
         <footer>
@@ -230,6 +142,8 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <script src="events.js"></script>
 
 </body>
 
