@@ -33,12 +33,13 @@ function fields(query) {
 /**
  * Stores the specified event fields as an event with the id as the name.
  */
-function storeEvent(id, name, date, description, category) {
+function storeEvent(id, name, date, description, category, url) {
 	var event = {
 			'name': name,
 			'date': date,
 			'description': description,
-			'category': category
+			'category': category,
+			'url': url
 	};
 	
 	store.set(id, event);
@@ -64,13 +65,34 @@ function getEvents() {
 function getRecentEvents(n) {
 	var recent = {};
 	
-	for(var i = 0; i < n; i ++) {
+	var size = n;
+	if(store.getAll().length < n) {
+		size = store.getAll().length;
+	}
+	
+	for(var i = 0; i < size; i ++) {
 		recent[i] = {
+				id: "NONE",
 				date: "NONE"
-		}
+		};
+		
+		var flag;
 		
 		store.forEach(function(event, id) {
-			// TODO: implement
+			flag = false;
+			
+			for(var j = 0; j < i; j ++) {
+				if(id == event[j].id) {
+					flag = true;
+				}
+			}
+			
+			if(!flag && (recent[i].id == "NONE" ||
+					(precedes(event.date, recent[i].date) &&
+							id != recent[i].id))) {
+				recent[i].id = id;
+				recent[i].date = event.date;
+			}
 		});
 	}
 }
