@@ -125,6 +125,8 @@ function parseDate(date) {
  * yyyy-mm-dd.
  */
 function convert(mdy) {
-	var split = mdy.split('/');
-	return split[2] + '-' + split[0] + '-' + split[1];
+	if(mdy.indexOf('/') >= 0) {
+		var split = mdy.split('/');
+		return split[2] + '-' + split[0] + '-' + split[1];
+	}
 }
