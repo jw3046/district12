@@ -187,17 +187,18 @@ $(document).ready(function(){
 		var mm = $(this).siblings("#mm").val();
 		var dd = $(this).siblings("#dd").val();
 		var yyyy = $(this).siblings("#yyyy").val();
-
 		// var date = new Date();
 		// date.setFullYear(yyyy);
 		// date.setMonth(mm-1);
 		// date.setDate(dd);
-		var date = yyyy + '-' + mm + '-' + dd;
-		console.log(date);
-
-		storeEvent(e.event_id, e.event_name, date, e.web_description, e.category, e.event_detail_url);
-		$(this).text('Added to Calendar');
-		$(this).attr('class', 'btn btn-success disabled');
+		if (mm == '- Month -' || dd == '- Day -' || yyyy == '- Year -') {
+			alert('Please enter a date');
+		} else {
+			var date = yyyy + '-' + mm + '-' + dd;
+			storeEvent(e.event_id, e.event_name, date, e.web_description, e.category, e.event_detail_url);
+			$(this).text('Added to Calendar');
+			$(this).attr('class', 'btn btn-success disabled');
+		}
 	});
 
 	$(document).on('click', '.btn-see-related', function(event) {
@@ -241,7 +242,7 @@ function getEventsListings() {
     $.ajax({
         type: "GET",
         url: "http://api.nytimes.com/svc/events/v2/listings.jsonp",
-        data: {'api-key':eventListingsKey, 'filters':filters, 'query':query},
+        data: {'api-key':eventListingsKey, 'filters':filters, 'query':query, 'limit':'81'},
         dataType: 'jsonp',
         success: function (data) {
             events = data.results;
