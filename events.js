@@ -246,6 +246,7 @@ function getEventsListings() {
         dataType: 'jsonp',
         success: function (data) {
             events = data.results;
+            events.reverse();
             totalpage = Math.ceil(events.length/9);
             displayEvents(curpage);
         },
