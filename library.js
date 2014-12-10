@@ -34,15 +34,13 @@ function fields(query) {
  * Stores the specified event fields as an event with the id as the name.
  */
 function storeEvent(id, name, date, description, category, url) {
-	var event = {
-			'name': name,
-			'date': date,
-			'description': description,
-			'category': category,
-			'url': url
-	};
-	
-	store.set(id, event);
+	store.set(id, {
+		'name': name,
+		'date': date,
+		'description': description,
+		'category': category,
+		'url': url
+	});
 }
 
 /**
@@ -100,9 +98,9 @@ function getRecentEvents(n) {
 /**
  * Returns a version of the given string shortened to the given length.
  */
-function shorten(string, length) {
-	if(string.length > length) {
-		return string.substring(0, length - 3) + '...';
+function shorten(s, length) {
+	if(s.length > length) {
+		return s.substring(0, length - 3) + '...';
 	}
 }
 
@@ -110,7 +108,6 @@ function shorten(string, length) {
  * Returns whether date1 precedes date2.
  */
 function precedes(date1, date2) {
-	var d1 = convert(date1);
 }
 
 /**
@@ -118,15 +115,4 @@ function precedes(date1, date2) {
  */
 function parseDate(date) {
 	// TODO: implement parser for date_time_description field
-}
-
-/**
- * Converts a date string in the format mm/dd/yy to one in the format
- * yyyy-mm-dd.
- */
-function convert(mdy) {
-	if(mdy.indexOf('/') >= 0) {
-		var split = mdy.split('/');
-		return split[2] + '-' + split[0] + '-' + split[1];
-	}
 }

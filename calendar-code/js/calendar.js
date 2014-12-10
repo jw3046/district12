@@ -6,17 +6,21 @@
  * Updates currently stored events.
  */
 function updateEvents() {
-	$('.responsive-calendar').responsiveCalendar.events = {};
+	alert('beginning of update');
+    var e = {};
 	
-	var i = 11;
-	
-	store.forEach(function(event, id) {
-		alert(event.url);
-		$('.responsive-calendar').responsiveCalendar.events['2014-12-09'] = {
-			'number': shorten(events.name, 10),
-			'url': events.url
+	store.forEach(function(id, event) {
+		alert('in forEach ' + event.name);
+		e[event.date] = {
+			'number': event.name,
+			'url': event.url
 		};
 		
-		i ++;
+		//alert('e: ' + JSON.stringify(e));
+
 	});
-}
+	
+	//alert('e: ' + JSON.stringify(e));
+	
+	return e;
+} 
